@@ -64,6 +64,10 @@ body {
 
 
 /*side_back=======背面*/
+.photo .side_back {
+	z-index: -1;
+}
+
 .photo .side_back .desc {
 	color: #666;
 	font-size: 14px;

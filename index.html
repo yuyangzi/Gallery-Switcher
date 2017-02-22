@@ -6,24 +6,25 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-	<div class="wrap">
+	<div class="wrap" id="wrap">
 		<!-- photo负责2D动画效果 -->
-		<div class="photo cneter photo_front" id="photo">
+		<div class="photo cneter photo_front" id="photo_{{id}}">
 			<!-- photo_wrap负责3D动画效果 -->
 			<div class="photo_wrap">
 				<div class="side side_front">
 					<figure>
-						<p class="img"><img src="img/0 (1).jpg" alt="超凡蜘蛛侠"></p>
-						<figcaption class="caption">超凡蜘蛛侠</figcaption>
+						<p class="img"><img src="img/{{img}}" alt="{{alt}}"></p>
+						<figcaption class="caption">{{caption}}</figcaption>
 					</figure>
 				</div>
 				<div class="side side_back">
-					<p class="desc">描述信息:</p>
+					<p class="desc">{{desc}}}</p>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	
+	<script src="js/data.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
