@@ -295,9 +295,9 @@ var films= dataStr.split("<br><br><br>");
 for (var i = 0; i<films.length; i++) {
 	var captions = films[i].split("<br><br>");
 	data.push({
-		img: captions[0].replace("、"," ") + ".jpg",
+		img: captions[0].replace("、"," ") + "-min.jpg",
 		caption: captions[0].split("、")[1],
 		desc: captions[1]
 	});
-	console.log(captions[0].replace("、"," ") + ".jpg");
+	console.log(captions[0].replace("、"," ") + "-min.jpg");
 }
