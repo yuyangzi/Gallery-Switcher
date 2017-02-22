@@ -1,6 +1,6 @@
 var data = [];
 // 使用ES6引入的模板字符串:反撇号(`),表示的变量dataStr的字符串字面量
-var dataStr =`
+var dataStr = `
 1、疯狂动物城<br>\
 <br>\
 导演: 拜伦·霍华德 / 瑞奇·摩尔 / 杰拉德·布什<br>\
@@ -229,7 +229,7 @@ var dataStr =`
 片长: 96分钟<br>\
 <br>\
 <br>\
-20、怪兽召唤<br>\
+20、怪物召唤<br>\
 <br>\
 导演: 胡安·安东尼奥·巴亚纳<br>\
 编剧: 帕特里克·内斯 / 西沃恩·道德<br>\
@@ -287,17 +287,15 @@ var dataStr =`
 语言: 英语<br>\
 上映日期: 2016-12-25(美国)<br>\
 片长: 127分钟<br>\
-`;  
+`;
 
-
-
-var films= dataStr.split("<br><br><br>");
-for (var i = 0; i<films.length; i++) {
+//使用split方法以"<br><br><br>"分割字符串dataStr,并赋值给数组films
+var films = dataStr.split("<br><br><br>");
+for (var i = 0; i < films.length; i++) {
 	var captions = films[i].split("<br><br>");
 	data.push({
-		img: captions[0].replace("、"," ") + "-min.jpg",
+		img: captions[0].replace("、", " ") + "-min.jpg",
 		caption: captions[0].split("、")[1],
 		desc: captions[1]
 	});
-	console.log(captions[0].replace("、"," ") + "-min.jpg");
 }

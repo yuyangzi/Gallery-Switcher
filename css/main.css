@@ -8,6 +8,7 @@ body {
 	color: #555;
 	font-family: "Avenir next","LangTinghei SC";
 	font-size: 14px;
+	overflow: hidden;
 }
 
 .wrap {
@@ -74,7 +75,7 @@ body {
 	line-height: 1.5em;
 }
 
-/*当前选中的海报样式*/
+/*当前选中海报的居中样式*/
 .cneter {
 	top: 50%;
 	left: 50%;
