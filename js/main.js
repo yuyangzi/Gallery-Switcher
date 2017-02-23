@@ -150,7 +150,7 @@ function GallerySort(Index) {
     // 已添加类的方式.展现当前选中的".photo"和其对应的控制按钮;
     var photo = get("#photo_" + Index);
     photo.className += " center ";
-    // photo.style.transform = "translate(-50%,-50%)";
+    photo.style.transform = "translate(-50%,-50%)";
     photo.setAttribute("title","点击查看详细信息");
     get("#nav_"+Index).className += " item_current ";
     get("#nav_"+Index).setAttribute("title","点击查看详细信息");
