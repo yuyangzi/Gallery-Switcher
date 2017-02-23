@@ -108,11 +108,41 @@ body {
 	backface-visibility: hidden; 
 }
 
-
+/*控制图片3D翻转*/
 .photo_front .photo_wrap {
 	transform: rotateY(0deg);
 }
-
 .photo_back .photo_wrap {
 	transform: rotateY(180deg);
+}
+
+/*控制栏样式-----nav*/
+nav {
+	display: flex;
+	justify-content: space-around;
+	width:80%;;
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	left:10%;
+	bottom: 20px;
+	background-color: rgba(200,200,200,.6);
+	z-index: 999;
+}
+
+nav .item {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	border-radius: 50%;
+	background-color: #eeeeee;
+	transform: scale(.6);
+	line-height:30px;
+	text-align: center;
+	cursor: pointer;
+}
+
+nav .item_current {
+	transform: scale(1);
+	background-color: red;
 }
