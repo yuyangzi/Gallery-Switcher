@@ -1,19 +1,48 @@
 window.onload = function() {
     addPhotos();
-    var photos = document.getElementsByClassName("photo");
-    for (var i=0; i<photos.length; i++) {
-        photos[i].onclick = function () {
-            turn(this);
+    var onPhotos = get(".photo");
+    var onItems = get(".item");
+    for (var i=0;i< onPhotos.length; i++) {
+        onPhotos[i].onclick = function () {
+            var Index = getIndex(onPhotos,this);
+            if(this.className.indexOf("center") > -1) {
+                turn(this);
+            }else {
+                GallerySort(Index);
+            }
+        }
+    }
+    for (var j=0; j<onItems.length; j++) {
+        onItems[j].onclick = function () {
+            var Index = getIndex(onItems,this);
+            if (this.className.indexOf("item_current") > -1) {
+                turn(onPhotos[Index]);
+            }else {
+                GallerySort(Index);
+            }
         }
     }
 };
 
+window.onresize = function () {
+    GallerySort(random([0, data.length - 1]));
+}
+
 // ===========通用功能型函数===============
 // 获取元素
 function get(selectElem) {
-    //判断传入的是元素的class还是id 
-    var method = selectElem.substr(0, 1) == "#" ? "getElementById" : "getElementsByClassName";
-    return document[method](selectElem.substr(1));
+    //获取传入参数的一个字符.
+    var str = selectElem.substr(0,1);
+    var elme = selectElem.substr(1);
+    if(str == "#") {
+        return document.getElementById(elme);
+    }else if(str == ".") {
+        return document.getElementsByClassName(elme)
+    }else if(str == "<"){
+        return document.getElementsByTagName(elme)
+    }else {
+        return false;
+    }
 }
 
 //获取数组中某个key的索引值
@@ -111,10 +140,14 @@ function GallerySort(Index) {
     for (var i = 0; i < _photo.length; i++) {
         _photo[i].className = _photo[i].className.replace(/\s*center\s*/, " ");
         _item[i].className = _item[i].className.replace(/\s*item_current\s*/," ");
+        _photo[i].style.left = "";
+        _photo[i].style.top = "";
+        _photo[i].style.transform = "rotate(0deg)";
         photos.push(_photo[i]);
     }
     // 已添加类的方式.展现当前选中的".photo"和其对应的控制按钮;
     get("#photo_" + Index).className += " center ";
+    get("#photo_" + Index).style.transform = "translate(-50%,-50%)";
     get("#nav_"+Index).className += " item_current ";
     //在数组中去除添加了"center"类的".photo";
     photo_center = photos.splice(Index, 1)[0];
@@ -137,3 +170,10 @@ function GallerySort(Index) {
     }
 }
 // =====================操作型函数结束======================
+
+
+// =====================事件型函数==========================
+
+
+
+// =====================事件型函数结束======================
