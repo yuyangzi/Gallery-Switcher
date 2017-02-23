@@ -108,7 +108,7 @@ function addPhotos() {
             .replace("{{caption}}", data[i].caption)
             .replace("{{desc}}", data[i].desc);
         html.push(_html);
-        navs.push("<span id='nav_"+ i +"' class='item fa fa-refresh'></span>");
+        navs.push("<span id='nav_"+ i +"' class='item '></span>");
     }
     html.push("<nav>"+navs.join('')+"</nav>");
     // 将id为wrap元素中的HTML代码替换为用join方法拼接好的html数组
@@ -139,16 +139,21 @@ function GallerySort(Index) {
     //清除所有".photo"上的"center"类;
     for (var i = 0; i < _photo.length; i++) {
         _photo[i].className = _photo[i].className.replace(/\s*center\s*/, " ");
-        _item[i].className = _item[i].className.replace(/\s*item_current\s*/," ");
+        _photo[i].setAttribute("title","");
         _photo[i].style.left = "";
         _photo[i].style.top = "";
         _photo[i].style.transform = "rotate(0deg)";
+        _item[i].className = _item[i].className.replace(/\s*item_current\s*/," ");
+        _item[i].setAttribute("title","");
         photos.push(_photo[i]);
     }
     // 已添加类的方式.展现当前选中的".photo"和其对应的控制按钮;
-    get("#photo_" + Index).className += " center ";
-    get("#photo_" + Index).style.transform = "translate(-50%,-50%)";
+    var photo = get("#photo_" + Index);
+    photo.className += " center ";
+    // photo.style.transform = "translate(-50%,-50%)";
+    photo.setAttribute("title","点击查看详细信息");
     get("#nav_"+Index).className += " item_current ";
+    get("#nav_"+Index).setAttribute("title","点击查看详细信息");
     //在数组中去除添加了"center"类的".photo";
     photo_center = photos.splice(Index, 1)[0];
     //把海报分为左,右两个部分;
