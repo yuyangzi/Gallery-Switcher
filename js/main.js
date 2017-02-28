@@ -1,23 +1,23 @@
-window.onload = function() {
+window.onload = function () {
     addPhotos();
     var onPhotos = get(".photo");
     var onItems = get(".item");
-    for (var i=0;i< onPhotos.length; i++) {
+    for (var i = 0; i < onPhotos.length; i++) {
         onPhotos[i].onclick = function () {
-            var Index = getIndex(onPhotos,this);
-            if(this.className.indexOf("center") > -1) {
+            var Index = getIndex(onPhotos, this);
+            if (this.className.indexOf("center") > -1) {
                 turn(this);
-            }else {
+            } else {
                 GallerySort(Index);
             }
         }
     }
-    for (var j=0; j<onItems.length; j++) {
+    for (var j = 0; j < onItems.length; j++) {
         onItems[j].onclick = function () {
-            var Index = getIndex(onItems,this);
+            var Index = getIndex(onItems, this);
             if (this.className.indexOf("item_current") > -1) {
                 turn(onPhotos[Index]);
-            }else {
+            } else {
                 GallerySort(Index);
             }
         }
@@ -32,23 +32,23 @@ window.onresize = function () {
 // 获取元素
 function get(selectElem) {
     //获取传入参数的一个字符.
-    var str = selectElem.substr(0,1);
+    var str = selectElem.substr(0, 1);
     var elme = selectElem.substr(1);
-    if(str == "#") {
+    if (str == "#") {
         return document.getElementById(elme);
-    }else if(str == ".") {
+    } else if (str == ".") {
         return document.getElementsByClassName(elme)
-    }else if(str == "<"){
+    } else if (str == "<") {
         return document.getElementsByTagName(elme)
-    }else {
+    } else {
         return false;
     }
 }
 
 //获取数组中某个key的索引值
-function getIndex(Arr,key) {
-    for (var i=0; i<Arr.length; i++) {
-        if(Arr[i] == key) {
+function getIndex(Arr, key) {
+    for (var i = 0; i < Arr.length; i++) {
+        if (Arr[i] == key) {
             return i;
         }
     }
@@ -90,7 +90,6 @@ function range() {
 // ========== 通用功能型函数结束===========
 
 
-
 // =====================操作型函数========================
 var data = data;
 // 输出所有海报
@@ -101,16 +100,16 @@ function addPhotos() {
     var navs = [];
     // 遍历data数组,将其中的数据带入到模板代码中
     for (var i = 0; i < data.length; i++) {
-        var _html = template.replace("{{id}}",i)
+        var _html = template.replace("{{id}}", i)
             .replace("{{img}}", data[i].img)
             .replace("{{alt}}", data[i].img)
             // .replace("{{title}}",data[i].img)
             .replace("{{caption}}", data[i].caption)
             .replace("{{desc}}", data[i].desc);
         html.push(_html);
-        navs.push("<span id='nav_"+ i +"' class='item '></span>");
+        navs.push("<span id='nav_" + i + "' class='item '></span>");
     }
-    html.push("<nav>"+navs.join('')+"</nav>");
+    html.push("<nav>" + navs.join('') + "</nav>");
     // 将id为wrap元素中的HTML代码替换为用join方法拼接好的html数组
     get("#wrap").innerHTML = html.join("");
     //随机选择一张海报设置居中;
@@ -139,21 +138,21 @@ function GallerySort(Index) {
     //清除所有".photo"上的"center"类;
     for (var i = 0; i < _photo.length; i++) {
         _photo[i].className = _photo[i].className.replace(/\s*center\s*/, " ");
-        _photo[i].setAttribute("title","");
+        _photo[i].setAttribute("title", "");
         _photo[i].style.left = "";
         _photo[i].style.top = "";
         _photo[i].style.transform = "rotate(0deg)";
-        _item[i].className = _item[i].className.replace(/\s*item_current\s*/," ");
-        _item[i].setAttribute("title","");
+        _item[i].className = _item[i].className.replace(/\s*item_current\s*/, " ");
+        _item[i].setAttribute("title", "");
         photos.push(_photo[i]);
     }
     // 已添加类的方式.展现当前选中的".photo"和其对应的控制按钮;
     var photo = get("#photo_" + Index);
     photo.className += " center ";
     photo.style.transform = "translate(-50%,-50%)";
-    photo.setAttribute("title","点击查看详细信息");
-    get("#nav_"+Index).className += " item_current ";
-    get("#nav_"+Index).setAttribute("title","点击查看详细信息");
+    photo.setAttribute("title", "点击查看详细信息");
+    get("#nav_" + Index).className += " item_current ";
+    get("#nav_" + Index).setAttribute("title", "点击查看详细信息");
     //在数组中去除添加了"center"类的".photo";
     photo_center = photos.splice(Index, 1)[0];
     //把海报分为左,右两个部分;
@@ -178,7 +177,6 @@ function GallerySort(Index) {
 
 
 // =====================事件型函数==========================
-
 
 
 // =====================事件型函数结束======================

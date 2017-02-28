@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	<meta charset="UTF-8">
-	<title>Gallery Switcher</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<!--<link rel="stylesheet" href="css/fontAwesome/css/font-awesome.min.css">-->
+    <meta charset="UTF-8">
+    <title>Gallery Switcher</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--<link rel="stylesheet" href="css/fontAwesome/css/font-awesome.min.css">-->
 </head>
 <body>
-	<div class="wrap" id="wrap">
-		<!-- photo负责2D动画效果 -->
-		<div class="photo photo_front" id="photo_{{id}}">
-			<!-- photo_wrap负责3D动画效果 -->
-			<div class="photo_wrap">
-				<div class="side side_front">
-					<figure>
-						<p class="img"><img src="img/{{img}}" alt="{{alt}}"></p>
-						<figcaption class="caption">{{caption}}</figcaption>
-					</figure>
-				</div>
-				<div class="side side_back">
-					<p class="desc">{{desc}}}</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<script src="js/data.js"></script>
-	<script src="js/main.js"></script>
+<div class="wrap" id="wrap">
+    <!-- photo负责2D动画效果 -->
+    <div class="photo photo_front" id="photo_{{id}}">
+        <!-- photo_wrap负责3D动画效果 -->
+        <div class="photo_wrap">
+            <div class="side side_front">
+                <figure>
+                    <p class="img"><img src="img/{{img}}" alt="{{alt}}"></p>
+                    <figcaption class="caption">{{caption}}</figcaption>
+                </figure>
+            </div>
+            <div class="side side_back">
+                <p class="desc">{{desc}}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

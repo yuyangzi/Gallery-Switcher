@@ -292,10 +292,10 @@ var dataStr = `
 //使用split方法以"<br><br><br>"分割字符串dataStr,并赋值给数组films
 var films = dataStr.split("<br><br><br>");
 for (var i = 0; i < films.length; i++) {
-	var captions = films[i].split("<br><br>");
-	data.push({
-		img: captions[0].replace("、", " ") + "-min.jpg",
-		caption: captions[0].split("、")[1],
-		desc: captions[1]
-	});
+    var captions = films[i].split("<br><br>");
+    data.push({
+        img: captions[0].replace("、", " ") + "-min.jpg",
+        caption: captions[0].split("、")[1],
+        desc: captions[1]
+    });
 }
