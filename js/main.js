@@ -138,6 +138,7 @@ function GallerySort(Index) {
     //清除所有".photo"上的"center"类;
     for (var i = 0; i < _photo.length; i++) {
         _photo[i].className = _photo[i].className.replace(/\s*center\s*/, " ");
+        // _photo[i].className = _photo[i].className.replace(/\s*photo_back\s*/,"photo_front");
         _photo[i].setAttribute("title", "");
         _photo[i].style.left = "";
         _photo[i].style.top = "";
@@ -172,11 +173,19 @@ function GallerySort(Index) {
         photoR.style.top = random(range().right.y) + "px";
         photoR.style.transform = "rotate(" + random([-150, 150]) + "deg)";
     }
+    setFront();
+}
+
+//设置所有海报正面显示
+function setFront() {
+	var photo = get(".photo");
+	for (var i = 0; i < photo.length; i++) {
+		if(photo[i].className.indexOf("photo_front") < 0) {
+			var cls = photo[i].className;
+			cls = cls.replace("photo_back","photo_front");
+			photo[i].className = cls;
+			console.log(cls);
+		}
+	}
 }
 // =====================操作型函数结束======================
-
-
-// =====================事件型函数==========================
-
-
-// =====================事件型函数结束======================
