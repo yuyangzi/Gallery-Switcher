@@ -1,0 +1,33 @@
+{
+  "name": "first",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --config webpack.config.js --display-modules --progress --colors --display-reasons"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuyangzi/first.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuyangzi/first/issues"
+  },
+  "homepage": "https://github.com/yuyangzi/first#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-preset-env": "^1.5.2",
+    "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.28.0",
+    "postcss-loader": "^2.0.6",
+    "style-loader": "^0.18.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.0.0"
+  }
+}
